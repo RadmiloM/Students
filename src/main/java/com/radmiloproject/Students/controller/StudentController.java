@@ -39,4 +39,13 @@ public class StudentController {
         List<StudentModal> studentModals = studentMapping.mapToDTO(students);
         return ResponseEntity.ok(studentModals);
     }
+
+    @PutMapping("/updateStudent/{id}")
+    public ResponseEntity<Void> updateStudent(@RequestBody StudentModal studentModal,@PathVariable("id") UUID uuid){
+        Student student = studentMapping.mapToEntity(studentModal);
+        studentService.updateStudent(student,uuid);
+        return ResponseEntity.ok().build();
+
+    }
+
 }
