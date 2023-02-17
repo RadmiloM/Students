@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.UUID;
 
 @RestController
@@ -30,5 +31,12 @@ public class StudentController {
         Student student = studentService.getStudent(uuid);
         StudentModal studentModal = studentMapping.mapToDTO(student);
         return ResponseEntity.ok(studentModal);
+    }
+
+    @GetMapping("/findAllStudents")
+    public ResponseEntity<List<StudentModal>> findAllStudents(){
+        List<Student> students = studentService.fetchAllStudents();
+        List<StudentModal> studentModals = studentMapping.mapToDTO(students);
+        return ResponseEntity.ok(studentModals);
     }
 }
