@@ -25,9 +25,9 @@ public class StudentMapping {
     public StudentModal mapToDTO(Student student){
         StudentModal studentModal = new StudentModal();
         studentModal.setFirstName(student.getFirstName());
-        student.setLastName(student.getLastName());
-        student.setIndexNumber(student.getIndexNumber());
-        student.setPhoneNumber(student.getPhoneNumber());
+        studentModal.setLastName(student.getLastName());
+        studentModal.setIndexNumber(student.getIndexNumber());
+        studentModal.setPhoneNumber(student.getPhoneNumber());
         return studentModal;
     }
 
