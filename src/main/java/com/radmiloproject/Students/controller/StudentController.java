@@ -48,4 +48,10 @@ public class StudentController {
 
     }
 
+    @DeleteMapping("/deleteStudent/{id}")
+    public ResponseEntity<Void> deleteStudent(@PathVariable("id") UUID uuid){
+        studentService.deleteStudentById(uuid);
+        return ResponseEntity.ok().build();
+    }
+
 }
