@@ -45,5 +45,9 @@ public class StudentService {
 
     }
 
+    public void deleteStudentById(UUID uuid){
+        studentRepository.deleteById(uuid);
+    }
+
 
 }
